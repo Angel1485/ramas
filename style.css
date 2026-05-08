@@ -1,3 +1,128 @@
-body { font-family: sans-serif; background-color: #f4f4f4; color: #333; padding: 20px; }
+/* body { font-family: sans-serif; background-color: #f4f4f4; color: #333; padding: 20px; }
 .comando { background: white; padding: 15px; margin-bottom: 10px; border-left: 5px solid #2ecc71; border-radius: 4px; }
-h1 { color: #2c3e50; }
+h1 { color: #2c3e50; } */
+
+/* ===== RESET ===== */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ===== BODY ===== */
+body{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    min-height: 100vh;
+    background:
+        linear-gradient(rgba(5,10,25,0.85), rgba(5,10,25,0.95)),
+        url('https://images.unsplash.com/photo-1515879218367-8466d910aaa4?q=80&w=1600&auto=format&fit=crop');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: white;
+    padding: 30px;
+}
+
+/* ===== HEADER ===== */
+header{
+    text-align: center;
+    margin-bottom: 40px;
+    padding: 30px;
+    border-radius: 20px;
+    background: rgba(255,255,255,0.08);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0 25px rgba(0,0,0,0.4);
+}
+
+header h1{
+    font-size: 3rem;
+    margin-bottom: 10px;
+    color: #00e5ff;
+    text-shadow: 0 0 15px rgba(0,229,255,0.7);
+}
+
+header p{
+    font-size: 1.2rem;
+    color: #d6d6d6;
+}
+
+/* ===== CONTENEDOR ===== */
+#contenedor{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+}
+
+/* ===== TARJETAS COMANDOS ===== */
+.comando{
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 20px;
+    padding: 25px;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(8px);
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 0 15px rgba(0,0,0,0.3);
+}
+
+/* Efecto brillo */
+.comando::before{
+    content: "";
+    position: absolute;
+    top: -100%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+        120deg,
+        transparent,
+        rgba(255,255,255,0.15),
+        transparent
+    );
+    transform: rotate(25deg);
+    transition: 0.6s;
+}
+
+.comando:hover::before{
+    top: 100%;
+}
+
+/* Hover tarjeta */
+.comando:hover{
+    transform: translateY(-10px) scale(1.02);
+    border-color: #00e5ff;
+    box-shadow:
+        0 0 20px rgba(0,229,255,0.4),
+        0 0 40px rgba(0,229,255,0.2);
+}
+
+/* TITULOS */
+.comando h2{
+    color: #00e5ff;
+    margin-bottom: 15px;
+    font-size: 1.7rem;
+}
+
+/* TEXTO */
+.comando p{
+    color: #e4e4e4;
+    line-height: 1.6;
+    font-size: 1rem;
+}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width: 600px){
+
+    header h1{
+        font-size: 2rem;
+    }
+
+    header p{
+        font-size: 1rem;
+    }
+
+    .comando{
+        padding: 20px;
+    }
+}
